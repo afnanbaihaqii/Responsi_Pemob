@@ -10,6 +10,7 @@ tombol submit ditekan dan form divalidasi, data dari input field diambil dan obj
 Status baru dibuat. Fungsi StatusBloc.addStatus dipanggil untuk menyimpan data ke 
 dalam sistem. Jika berhasil, pengguna diarahkan kembali ke halaman StatusPage, dan 
 dialog sukses ditampilkan. Jika terjadi kesalahan, dialog peringatan muncul.
+
 void simpan() {
  setState(() {
  _isLoading = true;
@@ -45,10 +46,12 @@ void simpan() {
  });
  });
 }
+
 2. Read (Baca): Proses membaca data terjadi saat widget StatusForm pertama kali 
 diinisialisasi. Jika parameter status tidak null, kontroler input diisi dengan data yang 
 ada, dan judul serta teks tombol diubah menjadi mencerminkan tindakan pembaruan. 
 Hal ini memberikan pengguna konteks tentang status yang sedang diedit.
+
 body: FutureBuilder<List>(
  future: StatusBloc.getAllStatus(), // Mengambil data status dari 
 bloc
@@ -65,11 +68,13 @@ status
  );
  }
 }
+
 3. Update (Ubah): Fungsi ubah berfungsi untuk memperbarui status yang sudah ada. 
 Sama seperti fungsi simpan, data dari input field diambil untuk membuat objek Status
 baru dengan ID yang sama. Fungsi StatusBloc.updateStatus kemudian dipanggil untuk 
 memperbarui data dalam sistem. Setelah proses berhasil, pengguna diarahkan kembali 
 dengan dialog yang menunjukkan status operasi.
+
 void ubah() {
  setState(() {
  _isLoading = true;
@@ -107,6 +112,7 @@ lagi",
  });
  }
 }
+
 4. Delete (Hapus): Meskipun tidak terdapat fungsi hapus dalam kode ini, fungsi tersebut 
 dapat ditambahkan dalam konteks yang lebih luas dengan memanggil metode dari 
 StatusBloc untuk menghapus status berdasarkan ID. Biasanya, penghapusan akan 
